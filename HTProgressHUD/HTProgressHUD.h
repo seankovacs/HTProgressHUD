@@ -54,7 +54,7 @@ typedef enum {
 @interface HTProgressHUD : UIView
 
 // View's materials
-@property (nonatomic, strong) UIView *hudView; // Actual HUD view.
+@property (nonatomic, strong) UIVisualEffectView *hudView; // Actual HUD view.
 @property (nonatomic, strong) UILabel *textLabel; // Default text label.
 
 // View Appearance Options

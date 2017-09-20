@@ -207,25 +207,7 @@
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         
         // HUD View
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_8_0
-        if ([UIVisualEffectView class] != Nil) {
-            self.hudView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
-        }
-        else {
-            self.hudView = [[UIView alloc] init];
-            self.hudView.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.7f];
-            self.hudView.opaque = NO;
-            self.hudView.layer.rasterizationScale = [[UIScreen mainScreen] scale];
-            self.hudView.layer.shouldRasterize = YES;
-        }
-#else
-        self.hudView = [[UIView alloc] init];
-        self.hudView.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.7f];
-        self.hudView.opaque = NO;
-        self.hudView.layer.rasterizationScale = [[UIScreen mainScreen] scale];
-        self.hudView.layer.shouldRasterize = YES;
-#endif
-        
+        self.hudView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
         self.hudView.layer.cornerRadius = 10.0f;
         self.hudView.layer.masksToBounds = YES;
         
@@ -239,7 +221,7 @@
         self.textLabel.textAlignment = NSTextAlignmentCenter;
         self.textLabel.font = [UIFont boldSystemFontOfSize:14.0f];
         self.textLabel.numberOfLines = 1;
-        [self.hudView addSubview:self.textLabel];
+        [self.hudView.contentView addSubview:self.textLabel];
         
         // Appearance Options
         self.indicatorView = [HTProgressHUDIndicatorView indicatorViewWithType:HTProgressHUDIndicatorTypeActivityIndicator];
