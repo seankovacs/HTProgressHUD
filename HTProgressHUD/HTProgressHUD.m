@@ -495,7 +495,7 @@
 {
     [_indicatorView removeFromSuperview];
     _indicatorView = indicatorView;
-    [self.hudView addSubview:indicatorView];
+    [self.hudView.contentView addSubview:indicatorView];
     [self updateViews];
 }
 
